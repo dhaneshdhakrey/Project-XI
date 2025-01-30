@@ -1,15 +1,22 @@
 import React, { useState,useEffect } from "react";
 import EmptyCart from "./Empty/Empty";
 import Nonempty from "./Non-Empty/Nonempty";
+import getCartId from "../../Utils/getCartId";
 import Navbar from "../Navbar/Nav";
 import Footer from "../Footer/Footer";
 import ErrorCard from "../UI/Error";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 function CartCont() {
     let navigate=useNavigate();
-    let [prevCart,setCart]=useState([]);
+    let [prevCartId,setCartId]=useState(null);
     useEffect(()=>{
-      //here we will fetch the cart details with cart id
+      async function fetchCartId() {
+        const id = await getCartId();
+        console.log("Cart ID fetched:", id);
+        setCartId(id);
+      }
+      fetchCartId();
       fetchCartItems();
     },[])
     
@@ -19,20 +26,17 @@ function CartCont() {
       
       let data;
       try {
-        // for kartik db we have to set cart id in local storage or get request to get cart items
-        let response=await fetch('https://react-test-server-97af1-default-rtdb.firebaseio.com/Products.json');
-        if(!response.ok){
-          throw new Error('Something went wrong'+response.status);
-        }
+        console.log(prevCartId)
+        let response=await axios.get(`http://172.16.112.40:8000/store/carts/${prevCartId}/items/`);
+        console.log(response);
         
-        data=await response.json();
         
       } catch (error) {
         
       }
       let temp1 = [];
 for (const key in data) {
-  if (data.hasOwnProperty(key)) { // Ensure it's a direct property
+  if (data.hasOwnProperty(key)) { 
     const item = data[key];
     
     
@@ -43,9 +47,9 @@ for (const key in data) {
   }
 }
 
-console.log(temp1); 
+// console.log(temp1); 
 
-      setCart(temp1);
+      // setCart(temp1);
     }
     let Todisplay = <EmptyCart />;
 

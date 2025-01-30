@@ -6,10 +6,10 @@ function Card1(props) {
   const navigate = useNavigate();
 
   function handleClick() {
-    //console.log(props.price);
-    //props.changeCart({price:props.price,id:props.id,imgsrc:props.imgsrc});
+    console.log(props.id);
+   
 
-    navigate(`products/${props.id}`);
+    navigate(`/products/${props.id}`);
 
   }
   return (

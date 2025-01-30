@@ -1,39 +1,37 @@
 import React,{useState,useEffect} from 'react';
 import { useParams } from "react-router-dom";
+import getCartId from '../../Utils/getCartId';
 import ErrorCard from '../UI/Error';
 import Navbar from '../Navbar/Nav';
 import Loading from '../UI/Loading';
+import axios from 'axios';
 import './Productpage.css'; // Import the new CSS file
 import Footer from '../Footer/Footer';
 const buttonClasses = 'product-button';
 const imageClasses = 'image-thumbnail';
 const textClasses = 'text-sm font-medium';
 
+
 function ProductDetail(){
-  let cartid;
+  // const cartid1=getCartId();
+  // console.log(cartid1);
   const { productId } = useParams();
   let [prevProduct,setProduct]=useState([]);
   let [prevIsLoading,setIsLoading]=useState(false);
   let [prevError,setError]=useState(null);
   const [cartid1, setCartId] = useState(null);
-  // async function call1() {
-  //   const response = await fetch('http://172.16.112.40:8000/store/carts/', { method: 'POST' });
-  //   const data = await response.json();
-  //   setCartId(data.id);
-  //}
+ 
   
 
-  async function call(){
+  async function fetchproduct(){
+    
     setError(null);
     setIsLoading(true);
     try {
-      // let response = await fetch(`http://172.16.112.40:8000/store/products/${productId}`);
-      let response=await fetch(`https://fakestoreapi.com/products/${productId}`);
-      if (!response.ok) {
-        throw new Error("Lund lagaye"+response.status);
-      }
-      let data = await response.json();
-      setProduct(data);
+       let response = await axios.get(`http://172.16.112.40:8000/store/products/${productId}`);
+      let data;
+      // console.log(response.data);
+      setProduct(response.data);
     } catch (error) {
       setError(error.message);
       console.log(error.message);
@@ -44,33 +42,33 @@ function ProductDetail(){
   
   async function addtoCartHandler(){
     try {
+     
       console.log(prevProduct);
-      let tosend={product_id:prevProduct.id,quantity:1,size:3};
-      console.log(JSON.stringify(tosend));
-      let response=await fetch(`http://172.16.112.40:8000/store/carts/${cartid1}/items/`,{
-        method:'POST',
-        body:JSON.stringify(tosend),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-       })
-       console.log(response);
+     let body={product_id:prevProduct.id,quantity:"3",size:"3"};
+     console.log(body);
+      //console.log(response);
+      let url=`http://172.16.112.40:8000/store/carts/${cartid1}/items/`;
+      console.log(url);
+      let response = await axios.post(url,body);
+      console.log(response.data);
     } catch (error) {
-      
+      console.log(error.message);
     }
   }
-  useEffect(()=>{
-    call();
-  },[productId]);
-  // useEffect(()=>{
-  //   call1();
-  // },[productId])
-  // console.log(productId);
+  useEffect(() => {
+    async function fetchCartId() {
+      const id = await getCartId();
+      console.log("Cart ID fetched:", id);
+      setCartId(id);
+    }
+    fetchCartId();
+    fetchproduct();
+  }, [])
+  
 
 
 
   return (
-    
     <React.Fragment>
       <Navbar/>
       {prevIsLoading && <Loading/>}
@@ -78,7 +76,7 @@ function ProductDetail(){
         <div className="product-container product-container-md">
         <div className="image-container">
           <img
-            src={prevProduct.image}
+            src={prevProduct.images?.[0]?.image || "fallback.jpg"}
             alt="Couched Floral Shirt"
             className="image-main"
           />
