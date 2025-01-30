@@ -2,12 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./Components/HomePage/Home";
-import Login from "./Components/UsersCredentials/Login";
+import Login from "./Components/Users_Data/Login";
 //import Productcart from "./Components/Cart/Non-Empty/CartCard";
+import LoginController from "./Components/Users_Data/Login_Controller";
+import MyOrders from "./Components/Users_Data/MySpace/MyOrders";
 //import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/CartCont"
 import Productpage from "./Components/Productpage/Productpage";
-//import Signup from "./Components/UsersCredentials/Signup";
+import Signup from "./Components/Users_Data/Signup";
 //import Loading from "./Components/UI/Loading";
 //import Nav from "./Components/Navbar/Nav";
 
@@ -20,7 +22,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/products/:productId" element={<Productpage/>}/>
-        <Route path="/Login&Signup" element={<Login />} />
+        <Route path="/test" element={<LoginController/>}/>
+        <Route path="/myorders" element={<MyOrders/>}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/yourCart" element={<Cart/>} />
       </Routes>
     </Router>

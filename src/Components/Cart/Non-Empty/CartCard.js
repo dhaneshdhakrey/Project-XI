@@ -8,12 +8,12 @@ const ProductCard = (props) => {
 
   async function incrementHandler(flag) {
     let newQuantity = flag === "+" ? prevQuantity + 1 : prevQuantity - 1;
-    
+    console.log(newQuantity);
     // Prevent quantity from going below 1
     if (newQuantity < 1) return;
 
-    let success = await Update_Quantity({ id: props.id, quantity: newQuantity, size: props.size });
-    // console.log(success);
+    let success = await Update_Quantity({ id: props.id, quantity: newQuantity, size: props.size,flag: flag });
+    
     if (success) {
       setQuantity(newQuantity);
     } else {
