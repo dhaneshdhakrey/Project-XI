@@ -28,7 +28,7 @@ function ProductDetail(){
     setError(null);
     setIsLoading(true);
     try {
-       let response = await axios.get(`http://172.16.112.40:8000/store/products/${productId}`);
+       let response = await axios.get(`http://172.16.112.40:8000/products/${productId}`);
       let data;
       // console.log(response.data);
       setProduct(response.data);

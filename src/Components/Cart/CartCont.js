@@ -2,8 +2,7 @@ import React, { useState,useEffect } from "react";
 import EmptyCart from "./Empty/Empty";
 import Nonempty from "./Non-Empty/Nonempty";
 import getCartId from "../../Utils/getCartId";
-import Navbar from "../Navbar/Nav";
-import Footer from "../Footer/Footer";
+
 import ErrorCard from "../UI/Error";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -69,12 +68,11 @@ function CartCont() {
     
   return(
     <div>
-        <Navbar/>
+      
        
         {Todisplay} 
         
-       
-        <Footer/>
+     
     </div>
   )
 }

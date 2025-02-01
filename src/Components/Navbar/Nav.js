@@ -19,6 +19,10 @@ function Nav() {
     navigate('/test');
     setIsMenuOpen(false);
   }
+  function newinclickhandler() {
+    navigate('/newin');
+    setIsMenuOpen(false);
+  }
 
   function cartIconClickHandler() {
     navigate('/yourCart');
@@ -118,32 +122,13 @@ function Nav() {
               )}
             </div>
 
-            {/* New In Dropdown */}
-            <div className="dropdown">
-              <div
-                className="dropdown-trigger"
-                onMouseEnter={() => handleMouseEnter('newIn')}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => toggleDropdown('newIn')}
-              >
-                <a href="#" className="navbar-link">
+           
+              <div>
+                <a className="newinlink" onClick={newinclickhandler}>
                   New In
                 </a>
-              </div>
-              {activeDropdown === 'newIn' && (
-                <div
-                  ref={dropdownRef}
-                  onMouseEnter={() => handleMouseEnter('newIn')}
-                  onMouseLeave={handleMouseLeave}
-                  className="dropdown-menu"
-                >
-                  {newInItems.map((item, index) => (
-                    <a key={index} href="#" className="dropdown-item">
-                      {item}
-                    </a>
-                  ))}
-                </div>
-              )}
+              
+             
             </div>
           </div>
 

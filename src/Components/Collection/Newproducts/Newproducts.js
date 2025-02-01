@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./CollectionCont.css";
-import Card1 from "./Card/Card1.js";
-import Loading from "../UI/Loading.js";
-import ErrorCard from "../UI/Error.js";
-import Banner from "./Banner.js";
+import Card1 from "../Card/Card1.js";
+import Loading from "../../UI/Loading.js";
+import ErrorCard from "../../UI/Error.js";
 import axios from "axios";
 
 let hardcodedProducts = [
@@ -46,6 +44,7 @@ function CollectionContainer() {
   }
 
   return (
+    <div className="margin">
     <div className="collection-container">
       {prevCollections.length > 0 ? (
         prevCollections.map((tempObj) => (
@@ -61,12 +60,8 @@ function CollectionContainer() {
         <p>No collections available</p> // Added fallback message
       )}
 
-      {/* Banner after 4 products */}
-      <div className="w-full">
-        <Banner />
-      </div>
-
       {prevError && <ErrorCard message={prevError} />} {/* Show error card if error occurs */}
+    </div>
     </div>
   );
 }

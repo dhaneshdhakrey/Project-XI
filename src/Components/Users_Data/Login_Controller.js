@@ -5,6 +5,7 @@ import Login from './Login';
 import './Login_Controller.css';
 import Signup from './Signup';
 import Footer from '../Footer/Footer';
+import Dashboard from './MySpace/Dashboard';
 
 function LoginController() {
   const navigate = useNavigate();
@@ -13,7 +14,9 @@ function LoginController() {
   let isLoggedIn = localStorage.getItem("isLoggedIn");
   
   if (isLoggedIn) {
-    return <div>You are logged in</div>;
+    return <div>
+      <Dashboard />
+    </div>;
   }
 
   return (

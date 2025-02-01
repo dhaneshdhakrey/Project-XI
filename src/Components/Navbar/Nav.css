@@ -48,6 +48,9 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.newinlink:hover{
+  cursor: pointer;
+}
 
 .dropdown {
   position: relative;

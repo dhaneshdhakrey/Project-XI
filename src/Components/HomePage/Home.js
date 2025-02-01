@@ -1,8 +1,6 @@
 import React from 'react';
-import Nav from "../Navbar/Nav";
 import CollectionCont from '../Collection/CollectionCont.js';
 import './Home.css';
-import Footer from '../Footer/Footer';
 
 function Home() {
   return (
@@ -22,12 +20,10 @@ function Home() {
 
           {/* Navbar */}
           <div className="NavbarCont">
-            <Nav />
           </div>
         </div>
         <CollectionCont />
       </div>
-      <Footer />
     </div>
   );
 }

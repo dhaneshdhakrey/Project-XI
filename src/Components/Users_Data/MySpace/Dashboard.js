@@ -1,13 +1,11 @@
 import React from 'react';
 import { User, Package, MapPin } from "lucide-react";
 import './Dashboard.css';
-import Nav from '../../Navbar/Nav';
-import Footer from '../../Footer/Footer';
+
 
 const Dashboard = () => {
   return (
     <React.Fragment>
-        <Nav/>
     <div className="dashboard-container">
       <main className="dashboard-main">
         {/* Header */}
@@ -68,7 +66,6 @@ const Dashboard = () => {
         </div>
       </main>
     </div>
-    <Footer/>
     </React.Fragment>
   );
 };
