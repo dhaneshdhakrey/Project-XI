@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    min-width: 100vw;
+    min-height: 20vh;
+    min-width: 98vw;
     background-color: var(--background);
   }
   
@@ -13,7 +13,7 @@
     background-color: var(--card);
     padding: 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0.1, 0, 0, 0.1);
     height: 50%;
     width: 100%;
     max-width: 30rem;
@@ -108,4 +108,7 @@
   
   .login-title span:hover {
     font-size: 2rem; /* Increase the size on hover */
+  }
+  .shivam{
+    margin-top: 100px;
   }

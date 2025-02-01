@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Login.css"; // Importing the CSS file
-// import LoginController from "./Login_Controller";
 import Nav from "../Navbar/Nav";
 import Footer from "../Footer/Footer";
 const LoginForm = () => {
@@ -13,7 +12,7 @@ const LoginForm = () => {
     };
     console.log(credentials);
     try {
-      let url = `http://172.16.112.40:8000/auth/jwt/create/`;
+      let url = `http://172.16.112.40:8000/login/`;
 
       let response = await axios.post(url, credentials);
 
@@ -34,7 +33,7 @@ const LoginForm = () => {
   }
   return (
     <div>
-      <Nav />
+     
       <div className="login-container">
         <div className="login-card">
           {/* <LoginController /> */}
@@ -80,7 +79,6 @@ const LoginForm = () => {
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

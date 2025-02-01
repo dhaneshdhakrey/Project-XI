@@ -16,7 +16,7 @@ function Nav() {
   const newInItems = ["Latest Collection", "Seasonal Trends", "Limited Edition", "Bestsellers"];
 
   function loginHandler() {
-    navigate('/login');
+    navigate('/test');
     setIsMenuOpen(false);
   }
 

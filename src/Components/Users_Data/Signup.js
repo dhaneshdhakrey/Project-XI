@@ -37,10 +37,27 @@ import Footer from "../Footer/Footer";
       password:password,
       re_password:password,
     };
+    // try {
+    //   let url = "http://172.16.112.40:8000/register/";
+    //   let response = await axios.post(url, credentials);
+    //   console.log('Success:', response.data);
+    // } catch (error) {
+    //   if (error.response) {
+    //     // The server responded with a status code outside of 2xx
+    //     console.log('Error data:', error.response.data);
+    //     setErrorMessage(JSON.stringify(error.response.data));
+    //   } else if (error.request) {
+    //     // The request was made but no response was received
+    //     setErrorMessage('No response received from server');
+    //   } else {
+    //     // Something happened in setting up the request
+    //     setErrorMessage('Error: ' + error.message);
+    //   }
+    // }
 
 
     console.log(credentials);
-    let url="http://172.16.112.40:8000/auth/users/"
+    let url="http://172.16.112.40:8000/register/";
     let response=await axios.post(url,credentials);
     console.log(response);
         
@@ -49,25 +66,24 @@ import Footer from "../Footer/Footer";
 
   return (
     <React.Fragment>
-      <Nav/>
     <div className="login-container">
       <div className="login-card">
         {/* <TitleofuserCredentials /> */}
         <form onSubmit={submitHandler}>
-          <div className="form-group">
-             <label className="form-label" htmlFor="Username">
-              UserName
-            </label>
-            <input
-              className="Username"
-              type="text"
-              id="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter your username"
-              required
-            />
-          </div>
+        <div className="form-group">
+                <label className="form-label" htmlFor="Username">
+                  UserName
+                </label>
+                <input
+                  className="form-input"
+                  type="text"
+                  id="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter your UserName"
+                  required
+                />
+              </div>
               <div className="form-group">
                 <label className="form-label" htmlFor="first-name">
                   First name
@@ -151,7 +167,6 @@ import Footer from "../Footer/Footer";
         </form>
       </div>
     </div>
-    <Footer/>
     </React.Fragment>
   );
 };

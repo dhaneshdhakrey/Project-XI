@@ -10,9 +10,7 @@ import MyOrders from "./Components/Users_Data/MySpace/MyOrders";
 import Cart from "./Components/Cart/CartCont"
 import Productpage from "./Components/Productpage/Productpage";
 import Signup from "./Components/Users_Data/Signup";
-//import Loading from "./Components/UI/Loading";
-//import Nav from "./Components/Navbar/Nav";
-
+import Dashboard from "./Components/Users_Data/MySpace/Dashboard";
 
 
 function App() {
@@ -26,7 +24,7 @@ function App() {
         <Route path="/myorders" element={<MyOrders/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/yourCart" element={<Cart/>} />
+        <Route path="/yourCart" element={<Dashboard/>} />
       </Routes>
     </Router>
     </div>

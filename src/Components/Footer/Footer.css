@@ -3,6 +3,8 @@
   padding: 4%;
   background-color: white;
   min-height: 20vh;  
+  width: 98vw;
+  
  /* Ensure it stays above other content */
 }
   
