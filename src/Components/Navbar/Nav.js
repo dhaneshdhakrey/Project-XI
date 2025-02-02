@@ -66,7 +66,7 @@ function Nav() {
               onClick={() => toggleDropdown('apparel')}
             >
               <a href="#" className="navbar-link">
-                Apparel
+                APPAREL
               </a>
             </div>
             {activeDropdown === 'apparel' && (
@@ -87,13 +87,16 @@ function Nav() {
 
           <div>
             <a className="navbar-link newinlink" onClick={newinclickhandler}>
-              New In
+              NEW IN
             </a>
           </div>
         </div>
 
         {/* Right Side Icons */}
         <div className="navbar-icons">
+        <button className="icon-button">
+            <Search size={20} />
+          </button>
           <button className="icon-button" onClick={cartIconClickHandler}>
             <ShoppingCart size={20} />
             <span className="icon-badge">0</span>
@@ -101,9 +104,7 @@ function Nav() {
           <button className="icon-button" onClick={loginHandler}>
             <User size={20} />
           </button>
-          <button className="icon-button">
-            <Search size={20} />
-          </button>
+          
         </div>
 
         {/* Hamburger Button */}

@@ -62,6 +62,7 @@ function CollectionContainer() {
       <div className="w-full">
         <Banner />
       </div>
+      
 
       {prevError && <ErrorCard message={prevError} />} {/* Show error card if error occurs */}
     </div>

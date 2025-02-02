@@ -2,7 +2,7 @@
 .MainDiv {
     position: relative;
     width: 100%;
-    height: 90vh;
+    height: 95vh;
     overflow: hidden;
 }
 
@@ -50,4 +50,73 @@
     .VideoBackground {
         object-fit: cover; /* Ensure the video still covers the container */
     }
+}
+.MainDiv {
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  backdrop-filter: invert(1);
+  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2);
+  animation: cursorPulse 2s infinite;
+}
+
+@keyframes cursorPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Optional: Add a trail effect */
+.cursor-follower::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.5;
+  transform: scale(2);
+  animation: cursorTrail 1s infinite;
+}
+
+@keyframes cursorTrail {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cursor-follower {
+    display: none; /* Optional: hide on mobile devices */
+  }
+  
+  .MainDiv {
+    cursor: auto; /* Restore default cursor on mobile */
+  }
 }
