@@ -1,8 +1,11 @@
 import React from 'react';
 import './Footer.css'; // Importing the CSS file
 import { GrInstagram } from "react-icons/gr";
-import { Linkedin } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 import { FaYoutube } from "react-icons/fa6";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -52,16 +55,15 @@ const Footer = () => {
           <div className="social-icons">
             <a href="#" className="footer-link">
               <img   /> <GrInstagram />
-
-
-            </a>
-            <a className="footer-link">
-              <img /> <Linkedin />
             </a>
             <a href="#" className="footer-link">
               <img   /> <FaYoutube />
-
             </a>
+            <a className="footer-link">
+            <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a className="footer-link">
+            <FontAwesomeIcon icon={faFacebook}  />  </a>
           </div>
         </div>
       </div>

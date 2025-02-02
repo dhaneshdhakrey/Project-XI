@@ -41,9 +41,6 @@ function CollectionContainer() {
     fetchCollection();
   }, []);
 
-  if (isLoading) {
-    return <Loading />; // Show loading component while fetching
-  }
 
   return (
     <div className="collection-container">

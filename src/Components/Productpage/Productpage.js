@@ -70,7 +70,6 @@ function ProductDetail(){
 
   return (
     <React.Fragment>
-      <Navbar/>
       {prevIsLoading && <Loading/>}
       {!prevIsLoading && !prevError && Object.keys(prevProduct).length > 0 && (
         <div className="product-container product-container-md">
@@ -158,7 +157,6 @@ function ProductDetail(){
       )}
     {!prevIsLoading&&prevError&&<p><ErrorCard message='Your product will apear here'></ErrorCard></p>}
     
-    <Footer/>
     </React.Fragment>
   );
 };

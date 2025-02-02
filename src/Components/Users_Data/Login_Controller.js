@@ -21,7 +21,6 @@ function LoginController() {
 
   return (
     <div className='login-controller'>
-      <Nav />
       <div className='top-container'>
         <h2 className="login-title">
           <span 
@@ -42,9 +41,7 @@ function LoginController() {
       
       {showLogin ? <Login /> : <Signup />}
       
-      <div className='shivam'>
-        <Footer />
-      </div>
+      
     </div>
   );
 }
