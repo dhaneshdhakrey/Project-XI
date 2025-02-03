@@ -31,7 +31,7 @@ function CartCont() {
       let data;
       try {
         console.log(prevCartId)
-        let response=await axios.get(`http://172.16.112.40:8000/store/carts/${prevCartId}/items/`);
+        let response=await axios.get(`http://172.16.112.40:8000/carts/${prevCartId}/items/`);
         let data=response.data;
         
         // console.log(response.data)

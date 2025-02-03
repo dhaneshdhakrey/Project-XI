@@ -37,29 +37,29 @@ import Footer from "../Footer/Footer";
       password:password,
       re_password:password,
     };
-    // try {
-    //   let url = "http://172.16.112.40:8000/register/";
-    //   let response = await axios.post(url, credentials);
-    //   console.log('Success:', response.data);
-    // } catch (error) {
-    //   if (error.response) {
-    //     // The server responded with a status code outside of 2xx
-    //     console.log('Error data:', error.response.data);
-    //     setErrorMessage(JSON.stringify(error.response.data));
-    //   } else if (error.request) {
-    //     // The request was made but no response was received
-    //     setErrorMessage('No response received from server');
-    //   } else {
-    //     // Something happened in setting up the request
-    //     setErrorMessage('Error: ' + error.message);
-    //   }
-    // }
+    try {
+      let url = "http://172.16.112.40:8000/register/";
+      let response = await axios.post(url, credentials);
+      console.log('Success:', response.data);
+    } catch (error) {
+      if (error.response) {
+        // The server responded with a status code outside of 2xx
+        console.log('Error data:', error.response.data);
+        setErrorMessage(JSON.stringify(error.response.data));
+      } else if (error.request) {
+        // The request was made but no response was received
+        setErrorMessage('No response received from server');
+      } else {
+        // Something happened in setting up the request
+        setErrorMessage('Error: ' + error.message);
+      }
+    }
 
 
-    console.log(credentials);
-    let url="http://172.16.112.40:8000/register/";
-    let response=await axios.post(url,credentials);
-    console.log(response);
+    // console.log(credentials);
+    // let url="http://172.16.112.40:8000/register/";
+    // let response=await axios.post(url,credentials);
+    // console.log(response);
         
 
   };

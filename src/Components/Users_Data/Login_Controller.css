@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
 .login-controller {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 111vh;
+    min-height: 80vh;
     background-color: #f8f9fa;
 }
 
@@ -15,22 +17,65 @@
 .login-title {
     margin-top: 50%;
     font-size: 24px;
-    font-weight: bold;
     color: #333;
     display: flex;
-    gap: 5px;
+    gap: 15px;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.login-title span {
+.login-tab {
     cursor: pointer;
     padding: 5px 10px;
-    border-radius: 5px;
-    transition: 0.3s;
+    position: relative;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
 }
 
-.login-title span:hover {
-    font-size: 28px;
-    
+.login-tab::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #333;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.login-tab:hover::after {
+    width: 100%;
+}
+
+.login-tab.active {
+    font-weight: 600;
+    color: #000;
+}
+
+.login-tab.active::after {
+    width: 100%;
+    background-color: #000;
+}
+
+.separator {
+    color: #666;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .login-title {
+        font-size: 20px;
+    }
+}
+
+.login-title {
+    font-family: 'Playfair Display', serif;  /* Elegant serif font */
+    /* or */
+    font-family: 'Montserrat', sans-serif;   /* Modern sans-serif font */
+    /* or */
+    font-family: 'Helvetica Neue', Arial, sans-serif;  /* Clean and professional */
 }

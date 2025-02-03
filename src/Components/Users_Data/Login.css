@@ -6,6 +6,7 @@
     min-height: 20vh;
     min-width: 98vw;
     background-color: var(--background);
+    margin-bottom: 5rem;
   }
   
   /* Card Styles */

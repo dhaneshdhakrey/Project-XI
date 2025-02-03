@@ -8,7 +8,7 @@ function MyOrders() {
 
     async function fetchMyOrders() {
         console.log(isLoggedIn)
-        let url = "http://172.16.112.40:8000/store/orders/";
+        let url = "http://172.16.112.40:8000/orders/";
         console.log(url);
         try {
             let response = await axios.get(url,  {

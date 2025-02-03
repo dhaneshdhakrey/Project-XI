@@ -6,7 +6,7 @@ const getCartId = async () => {
   if (!cartId) {
     try {
       // Request to create a new cart
-      const response = await axios.post("http://172.16.112.40:8000/store/carts/", {});
+      const response = await axios.post("http://172.16.112.40:8000/carts/", {});
       cartId = response.data.id; // Adjust this based on the response format
       localStorage.setItem("cartId", cartId);
     } catch (error) {

@@ -25,14 +25,14 @@ function LoginController() {
         <h2 className="login-title">
           <span 
             onClick={() => setShowLogin(true)}
-            className={`cursor-pointer ${showLogin ? 'font-bold' : ''}`}
+            className={`login-tab ${showLogin ? 'active' : ''}`}
           >
             Login
           </span>
-          {' or '}
+          <span className="separator">or</span>
           <span 
             onClick={() => setShowLogin(false)}
-            className={`cursor-pointer ${!showLogin ? 'font-bold' : ''}`}
+            className={`login-tab ${!showLogin ? 'active' : ''}`}
           >
             Register
           </span>
@@ -40,8 +40,6 @@ function LoginController() {
       </div>
       
       {showLogin ? <Login /> : <Signup />}
-      
-      
     </div>
   );
 }

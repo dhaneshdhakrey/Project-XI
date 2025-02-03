@@ -41,7 +41,9 @@ function CollectionContainer() {
 
 
   return (
+
     <div className="margin">
+      <div>hello</div>
     <div className="collection-container">
       {prevCollections.length > 0 ? (
         prevCollections.map((tempObj) => (

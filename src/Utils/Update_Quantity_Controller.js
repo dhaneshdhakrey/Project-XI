@@ -18,7 +18,7 @@ async function Update_Quantity({ id, quantity, size, flag }) {
       body = { product_id: id, quantity: quantity, size: size };
     }
     console.log(body);
-    let url = `http://172.16.112.40:8000/store/carts/${cartid1}/items/${id}/`;
+    let url = `http://172.16.112.40:8000/carts/${cartid1}/items/${id}/`;
     console.log(url);
     let response = await axios.patch(url, body);
     console.log("Response Data:", response.data);

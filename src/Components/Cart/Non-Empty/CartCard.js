@@ -16,6 +16,7 @@ const ProductCard = (props) => {
     
     if (success) {
       setQuantity(newQuantity);
+      //props.onQuantitychange(props.id, newQuantity);
     } else {
       console.error("Failed to update quantity");
     }

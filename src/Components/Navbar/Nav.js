@@ -14,7 +14,7 @@ function Nav() {
   const apparelItems = ["Topwear", "Bottomwear", "Accessories"];
 
   function loginHandler() {
-    navigate('/test');
+    navigate('/myspace');
     setIsMenuOpen(false);
   }
 

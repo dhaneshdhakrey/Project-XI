@@ -23,7 +23,7 @@ function Card1(props) {
       <div className="card-content">
         <h2 className="product-tit" >{props.title}</h2>
         <p className="product-pri">Rs {props.price}</p>
-        <p>{props.id}</p>
+        {/* <p>{props.id}</p> */}
       </div>
     </div>
   );
