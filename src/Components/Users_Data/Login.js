@@ -3,7 +3,10 @@ import axios from "axios";
 import "./Login.css"; // Importing the CSS file
 import Nav from "../Navbar/Nav";
 import Footer from "../Footer/Footer";
+import { useToast ,ToastTypes } from "../Toast/Toast-provider";
 const LoginForm = () => {
+
+  const addToast = useToast();
   async function submitHandler(event) {
     event.preventDefault();
     let credentials = {
@@ -18,7 +21,8 @@ const LoginForm = () => {
 
       console.log(response.data.access);
       localStorage.setItem("isLoggedIn",response.data.access);
-
+      addToast("You have successfully logged in.", ToastTypes.SUCCESS, 3000);
+      
     } catch (error) {
       console.log(error.message);
     }

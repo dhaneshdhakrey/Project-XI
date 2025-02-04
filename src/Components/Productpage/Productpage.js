@@ -103,7 +103,7 @@ function ProductDetail() {
             </div>
 
             <div className="mt-6 space-y-2">
-              <button onClick={addtoCartHandler} className="product-button-primary">Add to cart</button>
+              <button onClick={addtoCartHandler} className="product-button-primary">Add To Cart</button>
             </div>
 
             <p className="product-description">

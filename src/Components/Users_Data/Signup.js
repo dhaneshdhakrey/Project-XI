@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./Signup.css"; // Importing the CSS file
 import axios from "axios";
 import LoginController from "./Login_Controller";
-import Nav from "../Navbar/Nav";
-import Footer from "../Footer/Footer";
-
+import { useNavigate } from "react-router-dom";
+import { useToast, ToastTypes } from '../Toast/Toast-provider';
 
  function Signup () {
   const [username , setUsername] = useState("");
@@ -14,7 +13,8 @@ import Footer from "../Footer/Footer";
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  const addToast  = useToast();
+  const navigate = useNavigate();
  async function submitHandler  (event)  {
     event.preventDefault();
 
@@ -40,18 +40,23 @@ import Footer from "../Footer/Footer";
     try {
       let url = "http://172.16.112.40:8000/register/";
       let response = await axios.post(url, credentials);
+      addToast("User Registered Successfully!", ToastTypes.SUCCESS, 3000);
       console.log('Success:', response.data);
+      navigate("/myspace");
     } catch (error) {
       if (error.response) {
         // The server responded with a status code outside of 2xx
         console.log('Error data:', error.response.data);
         setErrorMessage(JSON.stringify(error.response.data));
+        addToast(JSON.stringify(error.response.data), ToastTypes.ERROR, 3000);
       } else if (error.request) {
         // The request was made but no response was received
         setErrorMessage('No response received from server');
+        addToast('No response received from server', ToastTypes.ERROR, 3000);
       } else {
         // Something happened in setting up the request
         setErrorMessage('Error: ' + error.message);
+        addToast('Error: ' + error.message, ToastTypes.ERROR, 3000);
       }
     }
 
@@ -60,8 +65,9 @@ import Footer from "../Footer/Footer";
     // let url="http://172.16.112.40:8000/register/";
     // let response=await axios.post(url,credentials);
     // console.log(response);
-        
-
+      
+   
+    
   };
 
   return (
@@ -161,7 +167,7 @@ import Footer from "../Footer/Footer";
             </label>
           </div>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <button type="submit" className="form-button">
+          <button type="submit" className="form-button"  >
             REGISTER
           </button>
         </form>

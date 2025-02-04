@@ -13,7 +13,7 @@ const ToastTypes = {
 const ToastStyles = {
   [ToastTypes.SUCCESS]: {
     background: 'bg-black',
-    progressBar: 'bg-gray-700'
+    progressBar: 'bg-white'
   },
   [ToastTypes.ERROR]: {
     background: 'bg-red-500',
@@ -25,7 +25,7 @@ const ToastStyles = {
   },
   [ToastTypes.INFO]: {
     background: 'bg-black',
-    progressBar: 'bg-gray-700'
+    progressBar: 'bg-white'
   }
 };
 
