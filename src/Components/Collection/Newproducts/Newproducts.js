@@ -24,7 +24,7 @@ function CollectionContainer() {
       setIsLoading(true); // Set loading to true when starting fetch
 
       // Fetch API data
-      let response = await axios.get("http://172.16.112.40:8000/products");
+      let response = await axios.get("http://172.16.112.40:8000/products/newin");
       console.log(response.data.results);
 
       setCollections(response.data.results); // Update collections state with fetched data

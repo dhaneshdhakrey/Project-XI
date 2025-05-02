@@ -67,7 +67,7 @@ function Nav() {
     e.preventDefault();
     if (searchQuery.trim()) {
       // Navigate to search results page with query
-      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      navigate(`/searchpage/${searchQuery}`);
       setIsSearchOpen(false);
       setSearchQuery("");
     } else {

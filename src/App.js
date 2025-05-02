@@ -14,6 +14,8 @@ import Dashboard from "./Components/Users_Data/MySpace/Dashboard";
 import Newproducts from "./Components/Collection/Newproducts/Newproducts";
 import Navbar from "./Components/Navbar/Nav";
 import Checkout from "./Components/Payments/Checkout";
+import SearchPage from "./Components/Search/search";
+import { Search } from "lucide-react";
 function App() {
   return (
     <ToastProvider>
@@ -21,6 +23,7 @@ function App() {
     <Navbar />
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path='searchpage/:query' element={<SearchPage/>} />
         <Route path="/products/:productId" element={<Productpage/>}/>
         <Route path="/myspace" element={<LoginController/>}/>
         <Route path="/myorders" element={<MyOrders/>}/>
@@ -29,6 +32,7 @@ function App() {
         <Route path="/yourCart" element={<Cart/>} />
         <Route path="/newin" element={<Newproducts/>} />
         <Route path="/checkout" element={<Checkout/>} />
+        {/* < */}
       </Routes>
       <Footer />
     </Router>
