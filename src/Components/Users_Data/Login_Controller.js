@@ -15,7 +15,7 @@ function LoginController() {
   
   if (isLoggedIn) {
     return <div>
-      <Dashboard />
+      <Dashboard/>
     </div>;
   }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import BackendAPi from "../../../Utils/ConnectBackendAPis";
 function MyOrders() {
     let isLoggedIn = localStorage.getItem("isLoggedIn");
     const [orders, setOrders] = useState([]);
@@ -8,7 +8,8 @@ function MyOrders() {
 
     async function fetchMyOrders() {
         console.log(isLoggedIn)
-        let url = "http://172.16.112.40:8000/orders/";
+        // let url = "http://172.16.112.40:8000/orders/";
+        let url = BackendAPi("orders/");
         console.log(url);
         try {
             let response = await axios.get(url,  {

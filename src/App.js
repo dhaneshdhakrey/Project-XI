@@ -8,6 +8,7 @@ import LoginController from "./Components/Users_Data/Login_Controller";
 import MyOrders from "./Components/Users_Data/MySpace/MyOrders";
 import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/CartCont"
+import Buy from "./Components/Payments/Buy";
 import Productpage from "./Components/Productpage/Productpage";
 import Signup from "./Components/Users_Data/Signup";
 import Dashboard from "./Components/Users_Data/MySpace/Dashboard";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/yourCart" element={<Cart/>} />
         <Route path="/newin" element={<Newproducts/>} />
         <Route path="/checkout" element={<Checkout/>} />
+        <Route path='/buy' element={<Buy/>}/>
         {/* < */}
       </Routes>
       <Footer />

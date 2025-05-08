@@ -1,12 +1,13 @@
 import axios from 'axios';
-
+import BackendAPi from './ConnectBackendAPis'; // Adjust the import path as necessary
 const getCartId = async () => {
   let cartId = localStorage.getItem("cartId");
 
   if (!cartId) {
     try {
       // Request to create a new cart
-      const response = await axios.post("http://172.16.112.40:8000/carts/", {});
+     
+      const response = await axios.post(BackendAPi("carts/"), {}); // Adjust the URL as necessary
       cartId = response.data.id; // Adjust this based on the response format
       localStorage.setItem("cartId", cartId);
     } catch (error) {

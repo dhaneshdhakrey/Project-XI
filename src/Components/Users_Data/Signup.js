@@ -4,7 +4,7 @@ import axios from "axios";
 import LoginController from "./Login_Controller";
 import { useNavigate } from "react-router-dom";
 import { useToast, ToastTypes } from '../Toast/Toast-provider';
-
+import BackendAPi from "../../Utils/ConnectBackendAPis";
  function Signup () {
   const [username , setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -38,7 +38,9 @@ import { useToast, ToastTypes } from '../Toast/Toast-provider';
       re_password:password,
     };
     try {
-      let url = "http://172.16.112.40:8000/register/";
+      let url = BackendAPi("register/");
+      // let url = "http://172.16.112.40:8000/register/";
+      console.log("gg guys",url);
       let response = await axios.post(url, credentials);
       addToast("User Registered Successfully!", ToastTypes.SUCCESS, 3000);
       console.log('Success:', response.data);

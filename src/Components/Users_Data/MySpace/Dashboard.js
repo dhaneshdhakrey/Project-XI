@@ -13,6 +13,9 @@ const Dashboard = () => {
       ToastTypes.SUCCESS,
       3000
     );
+    setTimeout(() => {
+      window.location.href = "/myspace"; // Redirect to login page after 3 seconds
+    })
   }
 
   return (

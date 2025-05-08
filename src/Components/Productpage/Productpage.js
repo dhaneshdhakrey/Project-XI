@@ -5,6 +5,7 @@ import getCartId from '../../Utils/getCartId';
 import ErrorCard from '../UI/Error';
 import Loading from '../UI/Loading';
 import axios from 'axios';
+import BackendAPi from '../../Utils/ConnectBackendAPis';
 import './Productpage.css'; // Import the new CSS file
 
 const buttonClasses = 'product-button';
@@ -24,7 +25,8 @@ function ProductDetail() {
     setError(null);
     setIsLoading(true);
     try {
-      let response = await axios.get(`http://172.16.112.40:8000/products/${productId}`);
+      // let response = await axios.get(`http://172.16.112.40:8000/products/${productId}`);
+      let response = await axios.get(BackendAPi(`products/${productId}`));
       setProduct(response.data);
     } catch (error) {
       setError(error.message);
@@ -36,7 +38,8 @@ function ProductDetail() {
   async function addtoCartHandler() {
     try {
       let body = { product_id: prevProduct.id, quantity: "1", size: "1" };
-      let url = `http://172.16.112.40:8000/carts/${cartid1}/items/`;
+      // let url = `http://172.16.112.40:8000/carts/${cartid1}/items/`;
+      let url = BackendAPi(`carts/${cartid1}/items/`);
       let response = await axios.post(url, body);
 
       addToast("Success: Item added to cart!");
