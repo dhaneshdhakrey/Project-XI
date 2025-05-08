@@ -49,7 +49,7 @@ const LoginForm = () => {
           <form onSubmit={submitHandler}>
             <div className="form-group">
               <label className="form-label" htmlFor="email">
-                Username or Email Address *
+               Email Address *
               </label>
               <input
                 className="form-input"

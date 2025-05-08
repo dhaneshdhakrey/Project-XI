@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import { useLocation } from "react-router-dom";
 import VerifyPayment from "./VerifyPayment";
+import "./Buy.css";
 // require("dotenv").config();
 
 function Buy() {
@@ -73,7 +74,7 @@ function Buy() {
         textAlign: "center",
       }}
     >
-      <h1>Pay Now</h1>
+      <h1>Proceed to Razorpay</h1>
       <p>Amount: ₹{grand_total}</p>
       <button onClick={initiatePayment}>Pay Now</button>
     </div>

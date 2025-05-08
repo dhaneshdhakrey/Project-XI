@@ -1,0 +1,48 @@
+.buy-container {
+    margin: 150px auto;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    max-width: 420px;
+    height: 400px;
+    text-align: center;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .buy-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .buy-container h1 {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .buy-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 70px;
+  }
+  
+  .buy-container button {
+    margin-top: 100px;
+    background-color: #3399cc;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .buy-container button:hover {
+    background-color: #2b82b2;
+    transform: scale(1.05);
+  }
+  

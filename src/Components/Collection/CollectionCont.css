@@ -1,7 +1,6 @@
 .collection-container {
   position: relative;
-  z-index: 1;
-  padding: 3rem 1rem;
+  z-index: 10;
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +23,7 @@
     flex: 0 0 calc(40% - .1rem); /* Adjust for 2 cards per row with gap */
     
     width: 100%; /* Ensure the image takes up the full width of the card */
-    height: 50%;
+    height: 60%;
   }
   .collection-container > .card1 img {
     width: 100%; /* Ensure the image takes up the full width of the card */

@@ -11,7 +11,7 @@ function Home() {
           <div className="VideoContainer">
             <video 
               className="VideoBackground" 
-              src="https://cdn.shopify.com/videos/c/o/v/e7a211fec49e4737be811dcf07fe968a.mp4" 
+              src="https://cdn.shopify.com/videos/c/o/v/bf861138015a4c0caf95384ac27b20d7.mp4" 
               autoPlay 
               loop 
               muted

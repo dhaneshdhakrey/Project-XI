@@ -84,7 +84,7 @@ const Checkout = () => {
           <input type="text" name="country" placeholder="Country" value={formData.country} onChange={handleChange} required />
         </div>
 
-        <button type="submit" className="place-order-btn">Place Order</button>
+        <button type="submit" className="place-order-btn">Proceed to Payment</button>
       </form>
     </div>
   );

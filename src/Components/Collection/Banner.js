@@ -4,7 +4,7 @@ function Banner() {
   return (
     <div className="h-full w-full overflow-hidden">
       {/* Wrapper to control animation */}
-      <div className="flex w-[200%] animate-scroll hover:pause">
+      <div className="flex w-[130%] animate-scroll hover:pause">
         {/* First Image */}
         <div className="w-1/2 flex-shrink-0">
           <img 
@@ -17,6 +17,13 @@ function Banner() {
         <div className="w-1/2 flex-shrink-0">
           <img 
             src="https://cdn.shopify.com/s/files/1/0514/9494/4962/files/center-winter-fw24.jpg?v=1732264049" 
+            alt="Racing club"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-1/2 flex-shrink-0">
+          <img 
+            src="https://cdn.shopify.com/s/files/1/0514/9494/4962/files/racing-club.jpg?v=1733907811" 
             alt="Racing club"
             className="w-full h-full object-cover"
           />
