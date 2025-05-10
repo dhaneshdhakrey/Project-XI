@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./CollectionCont.css";
 import Card1 from "./Card/Card1.js";
-import Loading from "../UI/Loading.js";
+// import Loading from "../UI/Loading.js";
 import ErrorCard from "../UI/Error.js";
 import Banner from "./Banner.js";
 import BackendAPi from "../../Utils/ConnectBackendAPis.js";

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Nonempty.css";
-import { RiDeleteBin6Line } from "react-icons/ri";
+// import { RiDeleteBin6Line } from "react-icons/ri";
 import ProductCardinCart from "./CartCard.js";
 import Carttotal from "./Carttotal.js";
+import getCartId from "../../../Utils/getCartId.js";
 function Nonempty(props) {
   let [prevProducts, setProducts] = useState(props.Products);
-
+  
   //caclulate the total amount 
 
   const calculateTotalAmount = () => {
@@ -21,16 +22,32 @@ function Nonempty(props) {
         : product
     ));
   };
-//console.log(product.price);
 
-  // console.log(prevProducts);
-  // console.log(prevProducts[0].product.images)
+ async function handleDeleteProduct(cartItemId){
+        try{
+          const cartid = await getCartId();
+          const response = await fetch(`https://projectxi.onrender.com/carts/${cartid}/items/${cartItemId}/`, {
+            method: 'DELETE',
+          });
+
+          if (response.ok) {
+            // Item deleted successfully
+            setProducts(prevProducts => prevProducts.filter(item => item.id !== cartItemId));
+          } else {
+            console.error("Failed to delete item from cart");
+          }
+        } catch (error) {
+          console.error("Error deleting item:", error);
+        }
+
+ }
+
   return (
     <div className="cartt1">
      
 
       <div className="final">
-        {props.Products.map((product) => (
+        {prevProducts.map((product) => (
           <ProductCardinCart
             key={product.id}
             id={product.id}
@@ -44,6 +61,7 @@ function Nonempty(props) {
             size={product.size}
             quantity={product.quantity}
             onQuantityChange={updateProductQuantity}
+            onDelete={handleDeleteProduct}
           />
         ))}
       </div>

@@ -6,6 +6,11 @@ import Update_Quantity from '../../../Utils/Update_Quantity_Controller';
 const ProductCard = (props) => {
   let [prevQuantity, setQuantity] = useState(props.quantity);
 
+  function handledelete() {
+    if (props.onDelete) {
+      props.onDelete(props.id); // Delete based on id and size
+    }
+  }
   async function incrementHandler(flag) {
     let newQuantity = flag === "+" ? prevQuantity + 1 : prevQuantity - 1;
     console.log(newQuantity);
@@ -16,12 +21,15 @@ const ProductCard = (props) => {
     
     if (success) {
       setQuantity(newQuantity);
-      //props.onQuantitychange(props.id, newQuantity);
+      // Change this to match the parent component's prop name
+      if (props.onQuantityChange) {
+        props.onQuantityChange(props.id, newQuantity);
+      }
     } else {
       console.error("Failed to update quantity");
     }
   }
-
+  
   return (
     <div className="card2">
       <div className="card2-header">
@@ -36,7 +44,7 @@ const ProductCard = (props) => {
           <input type="number" value={prevQuantity} className="quantity-input" readOnly />
           <button className="button increment" onClick={() => incrementHandler("+")}>+</button>
         </div>
-        <button className="button delete">
+        <button className="button delete"  onClick={()=> handledelete()}>
           <RiDeleteBin6Line />
         </button>
       </div>

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import { useNavigate,useParams } from "react-router-dom";
 import Card1 from "../Collection/Card/Card1.js";
 import BackendAPi from "../../Utils/ConnectBackendAPis.js";
-import Loading from "../UI/Loading.js";
+// import Loading from "../UI/Loading.js";
 import ErrorCard from "../UI/Error.js";
 import axios from "axios";
 import { TbRuler3 } from "react-icons/tb";
@@ -33,9 +33,9 @@ function SearchPage(event){
     useEffect(() => {
         fetchSearch();
     }, [prevSearch])
-    if(isLoading){
-      return <Loading/>
-    }
+    // if(isLoading){
+    //   return <Loading/>
+    // }
     return(
         <div>
         {<div className="margin">

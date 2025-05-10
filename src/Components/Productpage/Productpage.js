@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useToast } from '../Toast/Toast-provider'; // Import the toast hook
 import getCartId from '../../Utils/getCartId';
 import ErrorCard from '../UI/Error';
-import Loading from '../UI/Loading';
+// import Loading from '../UI/Loading';
 import axios from 'axios';
 import BackendAPi from '../../Utils/ConnectBackendAPis';
 import './Productpage.css'; // Import the new CSS file
@@ -23,7 +23,7 @@ function ProductDetail() {
 
   async function fetchproduct() {
     setError(null);
-    setIsLoading(true);
+    // setIsLoading(true);
     try {
       // let response = await axios.get(`http://172.16.112.40:8000/products/${productId}`);
       let response = await axios.get(BackendAPi(`products/${productId}`));
@@ -32,7 +32,7 @@ function ProductDetail() {
       setError(error.message);
       console.log(error.message);
     }
-    setIsLoading(false);
+    // setIsLoading(false);
   }
 
   async function addtoCartHandler() {
@@ -60,7 +60,7 @@ function ProductDetail() {
 
   return (
     <React.Fragment>
-      {prevIsLoading && <Loading />}
+      {prevIsLoading }
       {!prevIsLoading && !prevError && Object.keys(prevProduct).length > 0 && (
         <div className="product-container product-container-md">
           <div className="image-container">
@@ -96,14 +96,14 @@ function ProductDetail() {
               <label className={textClasses}>MATERIAL</label>
               <button className={buttonClasses}>POLYESTER COTTON</button>
             </div>
-            <div className="product-quantity">
+            {/* <div className="product-quantity">
               <label className={textClasses}>Quantity</label>
               <div className="count">
                 <button className="">-</button>
                 <span className="text-lg">1</span>
                 <button className="">+</button>
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-6 space-y-2">
               <button onClick={addtoCartHandler} className="product-button-primary">Add To Cart</button>

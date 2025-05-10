@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card1 from "../Card/Card1.js";
-import Loading from "../../UI/Loading.js";
+// import Loading from "../../UI/Loading.js";
 import ErrorCard from "../../UI/Error.js";
 import BackendAPi from "../../../Utils/ConnectBackendAPis.js";
 import axios from "axios";

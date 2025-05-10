@@ -1,8 +1,10 @@
 .cart-totals {
+  margin-top: 12.5rem;
     width: 400px;
     padding: 20px;
     background: #f9f9f9;
     height: 20%;
+    margin-right: 15px;
   }
   
   .cart-totals h2 {
