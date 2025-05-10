@@ -44,7 +44,8 @@ function ProductDetail() {
 
       addToast("Success: Item added to cart!");
     } catch (error) {
-      addToast({ message: "Error: Item not added in the cart!" });
+      // FIX: This is the problem line, passing an object to addToast
+      addToast("Item not added in the cart!");
       console.log(error.message);
     }
   }
