@@ -170,3 +170,14 @@
   button {
     font-family: inherit;
   }
+
+  @media (max-width: 420px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card-content {
+      padding: 0.5rem;
+      
+    }
+  }

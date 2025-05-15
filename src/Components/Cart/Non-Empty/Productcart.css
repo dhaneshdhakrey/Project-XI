@@ -117,19 +117,38 @@
 
 @media screen and (max-width: 480px) {
   .card2 {
+    margin-left: 0%;
       padding: 10px;
+      width: 100%;
   }
-
+  .card2-header {
+    flex-direction: row;  /* Stack elements vertically */
+    align-items: center;
+    text-align: center;
+}
+.quantity-controls {
+  width: 50%;
+  justify-content: center;
+  margin-right: 0;
+  gap: 0.1rem;
+}
   .button {
       padding: 6px 12px;
   }
 
   .product-title {
-      font-size: 16px;
+      font-size: 10px;
+      font-weight: lighter;
+      
   }
 
   .product-price,
   .product-size {
       font-size: 13px;
+  }
+  .delete {
+    margin-top: 12px;
+    margin-left: 20px;
+   
   }
 }

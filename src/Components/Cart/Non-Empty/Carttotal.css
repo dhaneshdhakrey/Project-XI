@@ -93,7 +93,9 @@
     .cart-header {
       display: none;
     }
-    
+    .cart-totals{
+      margin-top: -0.5rem;
+    }
     .cart-item {
       grid-template-columns: 1fr;
       gap: 15px;
@@ -121,4 +123,13 @@
     .update-cart {
       width: 100%;
     }
+  }
+
+  @media screen and (max-width: 403px) {
+    .cart-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    
+    
   }
