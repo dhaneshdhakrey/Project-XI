@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import VerifyPayment from "./VerifyPayment";
 import "./Buy.css";
+import { useToast } from "../Toast/Toast-provider";
 // require("dotenv").config();
 
 function Buy() {
   const location = useLocation();
+  const navigate=useNavigate();
   const { grand_total, order_id ,backend_orderId} = location.state;
-
+const { toast } = useToast();
+  const addToast = useToast();
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
@@ -40,9 +43,13 @@ function Buy() {
          console.log("Payment flag is",paymentflag);
           if(paymentflag){
             console.log("Payment Successful!");
-             alert("Payment Successful!");
+             addToast("Payment Successfull")
+             setTimeout(() => {
+              navigate('/myspace');
+             }, 4000);
           }else{
-             alert("Payment Failed!");
+            //  alert("Payment Failed!");
+            addToast("Paymetn Failed")
           }
 
       },
@@ -57,7 +64,7 @@ function Buy() {
 
     const rzp = new window.Razorpay(options);
     rzp.on("payment.failed", function (response) {
-      alert("Payment Failed: " + response.error.description);
+      // eix("Payment Failed: " + response.error.description);
     });
     rzp.open();
   };
